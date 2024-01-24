@@ -30,6 +30,7 @@ class _MyAppState extends State<MyApp> {
               } else if (shade > 16777215) {
                 shade = 16777215;
               }
+              // shade
             });
           },
           onTapDown: (details) {
