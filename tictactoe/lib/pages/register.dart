@@ -98,15 +98,17 @@ class _RegisterState extends State<Register> {
                     try {
                       await FirebaseAuth.instance
                           .createUserWithEmailAndPassword(
-                              email: '$_playername@tictactoe.com',
+                              email: '$_playername@dpu.ac.th',
                               password: _password);
                       gotoChallenge();
                     } on FirebaseAuthException catch (e) {
+                      if (!context.mounted) return;
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text(e.code),
                         duration: const Duration(seconds: 10),
                       ));
                     } catch (e) {
+                      if (!context.mounted) return;
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text(e.toString()),
                         duration: const Duration(seconds: 10),
